@@ -4,13 +4,15 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
+import java.util.List;
+
 public class Start {
     WebDriver wd;
 
     @Test
-    public void start(){
+    public void start() {
         wd = new ChromeDriver();
-       // wd.get("https://contacts-app.tobbymarshall815.vercel.app/home"); //without history of navigate on site
+        // wd.get("https://contacts-app.tobbymarshall815.vercel.app/home"); //without history of navigate on site
         wd.navigate().to("https://contacts-app.tobbymarshall815.vercel.app/home");
         wd.navigate().back();
         wd.navigate().forward();
@@ -19,10 +21,10 @@ public class Start {
         //wd.close();//close just current tab
         wd.quit();//close all browser
 
-        }
+    }
 
     @Test
-    public void firstTestLoginSuccess(){
+    public void firstTestLoginSuccess() {
         wd = new ChromeDriver();
         wd.navigate().to("https://contacts-app.tobbymarshall815.vercel.app/home");
 
@@ -38,9 +40,9 @@ public class Start {
 
 //fill valid password
         WebElement passwordTextBox = wd.findElement(By.cssSelector("[placeholder='Password']"));//-->equals
-                                                                    //("[placeholder^='Pas']") -->starts at ..
-                                                                    //("[placeholder$='ord']") -->ends with ..
-                                                                    //("[placeholder*='or']")  -->contains ..
+        //("[placeholder^='Pas']") -->starts at ..
+        //("[placeholder$='ord']") -->ends with ..
+        //("[placeholder*='or']")  -->contains ..
         passwordTextBox.click();
         passwordTextBox.clear();
         passwordTextBox.sendKeys("Nnoa12345$");
@@ -53,7 +55,9 @@ public class Start {
     }
 
     @Test
-    public void firstTestRegistrationSuccess(){
+
+
+    public void firstTestRegistrationSuccess() {
 
         wd = new ChromeDriver();
         wd.navigate().to("https://contacts-app.tobbymarshall815.vercel.app/home");
@@ -64,9 +68,11 @@ public class Start {
 
 //fill valid email
         WebElement emailTextBox = wd.findElement(By.cssSelector("[placeholder='Email']"));
+        emailTextBox = wd.findElement(By.cssSelector("[placeholder='Email']"));
         emailTextBox.click();
         emailTextBox.clear();
         emailTextBox.sendKeys("gigi@gmail.com");
+
 
 //fill valid password
         WebElement passwordTextBox = wd.findElement(By.cssSelector("[placeholder='Password']"));//-->equals
@@ -75,7 +81,10 @@ public class Start {
         passwordTextBox.clear();
         passwordTextBox.sendKeys("Gigi12345$");
 
-        WebElement registrationButton = wd.findElement(By.cssSelector("div.login_login__3EHKB :last-child"));
+        //WebElement registrationButton = wd.findElement(By.cssSelector("div.login_login__3EHKB :last-child"));
+        //WebElement registrationButton = wd.findElement(By.cssSelector("button:last-child"));
+        List<WebElement> list = wd.findElements(By.cssSelector("button"));
+        WebElement registrationButton = list.get(1);
         registrationButton.click();
 
 
