@@ -20,10 +20,27 @@ public class StartCss {
         WebElement el2 = wd.findElement(By.tagName("a"));
         List<WebElement> list = wd.findElements(By.tagName("a")); // ---> 3 a
         wd.findElement(By.className("container"));
-        wd.findElement(By.name("name"));
-        
+        //wd.findElement(By.name("name")); for example
+
         wd.findElement(By.linkText("LOGIN"));
         wd.findElement(By.partialLinkText("LOG"));
 
+
+        ////////////////////CSS Locator//////////////////////////////
+
+/// tagname
+        wd.findElement(By.cssSelector("div"));
+        wd.findElement(By.cssSelector("a"));
+        wd.findElement(By.cssSelector("input"));
+        wd.findElement(By.cssSelector("button"));
+
+///id  ---->  #
+        wd.findElement(By.cssSelector("#root"));
+
+///class ---> .class
+        wd.findElement(By.cssSelector(".container"));
+
+///another attributes
+        wd.findElement(By.cssSelector("[href='/home']"));
     }
 }
