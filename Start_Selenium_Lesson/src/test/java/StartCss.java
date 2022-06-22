@@ -11,7 +11,7 @@ public class StartCss {
     WebDriver wd;
 
     @Test
-    public void startCssLocators(){
+    public void startCssLocators() {
 
         wd = new ChromeDriver();
         wd.navigate().to("https://contacts-app.tobbymarshall815.vercel.app/home");
